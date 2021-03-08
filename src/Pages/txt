@@ -1,0 +1,37 @@
+import React from "react";
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import HomeScreen from "./HomeScreen";
+import Icon from 'react-native-vector-icons/FontAwesome';
+const Tab = createMaterialBottomTabNavigator();
+
+function DeteilScreen() {
+  return (
+    <Tab.Navigator
+      initialRouteName="Home"
+      activeColor="#e91e63"
+      barStyle={{ backgroundColor: '#046EE5' }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => (
+            <Icon name="home" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Deteil"
+        component={DeteilScreen}
+        options={{
+          tabBarLabel: 'Deteil',
+          tabBarIcon: ({ color }) => (
+            <Icon name="bell" color={color} size={26} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+export default DeteilScreen;
